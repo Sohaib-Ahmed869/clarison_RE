@@ -12,38 +12,41 @@ import MySavedWork from "./pages/user/MySavedWork";
 import ClarisonRESupport from "./pages/user/ClarisonRESupport";
 import AccountSetting from "./pages/user/AccountSetting";
 import MainDash from "./pages/createSendFlyer/MainDash";
-import ForSale from "./pages/createSendFlyer/ForSaleForm";
-import ForSaleForm from "./pages/createSendFlyer/ForSaleForm";
+import ForSale from "./pages/createSendFlyer/ForSale";
 import ForLease from "./pages/createSendFlyer/ForLease";
 import Auctions from "./pages/createSendFlyer/Auctions";
 import Dash2 from "./pages/createSendFlyer/Dash2";
+import UpdateMySchedule from "./pages/user/UpdateMySchedule"
+import ForSaleForm from "./pages/createSendFlyer/ForSaleForm";
 
 const App = () => {
   return (
     <>
       <Routes>
-        {/* User Routes Start  */}
+        {/* User Routes Start */}
         <Route path="/user" element={<UserLayout />}>
           <Route path="dashboard" element={<Dashboard />} />
-          <Route path="create-send-flyer" element={<CreateSendFlyer />} >
+
+          <Route path="create-send-flyer" element={<CreateSendFlyer />}>
             <Route path="dashboard" element={<MainDash />} />
             <Route path="for-sale" element={<ForSale />} />
             <Route path="sale-form" element={<ForSaleForm />} />
             <Route path="for-lease" element={<ForLease />} />
             <Route path="auctions" element={<Auctions />} />
             <Route path="property" element={<Dash2 />} />
-          </Route>
+          </Route>
+
           <Route path="my-schedule-flyer" element={<MySchedule />} />
-          <Route path="my-targeted-audience" element={<MyTargetedAudience />} />
+          <Route path="my-schedule-flyer/update" element={<UpdateMySchedule />} />
+          <Route path="my-targeted-audience" element={<TargetedAudience />} />
           <Route path="my-saved-work" element={<MySavedWork />} />
           <Route path="clarison-support" element={<ClarisonRESupport />} />
-          <Route path="account-setting" element={<AccountSetting />} >
+          <Route path="account-setting" element={<AccountSetting />}>
             <Route path="company-profile" element={<CompanyProfile />} />
             <Route path="company-profile-edit" element={<CompanyProfileEdit />} />
-          </Route>
+          </Route>
         </Route>
-
-        {/* User Routes End  */}
+        {/* User Routes End */}
       </Routes>
     </>
   );

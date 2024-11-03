@@ -47,7 +47,7 @@ const SideBar = ({ open, handleToggle }) => {
         )}
       </NavLink>
 
-      <NavLink onClick={handleToggle} to="/user/create-send-flyer">
+      <NavLink onClick={handleToggle} to="/user/create-send-flyer/dashboard">
         {({ isActive }) => (
           <div
             className={`flex items-center  px-4 py-4 my-2 rounded-2xl w-full transition-colors duration-300 ${

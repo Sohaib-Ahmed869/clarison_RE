@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ChevronUp, ChevronDown, Eye } from 'lucide-react';
 import PropertyTypes from '../../components/createAndSendFlyer/PropertyTypes';
+import { useNavigate } from 'react-router-dom';
 
 const Auctions = () => {
     const [formData, setFormData] = useState({
@@ -20,7 +21,7 @@ const Auctions = () => {
     const [showCapRateDropdown, setShowCapRateDropdown] = useState(false);
     const [showBuildingClassDropdown, setShowBuildingClassDropdown] = useState(false);
     const [selectedPropertyTypes, setSelectedPropertyTypes] = useState([]);
-
+    const router = useNavigate();
 
 
 
@@ -49,6 +50,7 @@ const Auctions = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(formData);
+        router('/user/create-send-flyer/sale-form');
     };
 
 

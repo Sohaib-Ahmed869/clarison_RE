@@ -1,286 +1,198 @@
 import React, { useState } from 'react';
 
-const ForSale = () => {
-  const [selectedTypes, setSelectedTypes] = useState({
-    office: false,
-    dataCenters: false
-  });
-
+const ForSaleForm = () => {
   const [formData, setFormData] = useState({
-    state: '',
-    county: '',
-    zipCode: '',
-    buildingSize: '',
-    askingPrice: '',
-    capRate: '',
-    buildingClass: []
+    emailSubject: '',
+    fromLine: '',
+    replyAddress: '',
+    flyerHeadline: '',
+    hasMLS: 'yes',
+    mlsNumber: '#123456'
   });
 
-  const [showPopups, setShowPopups] = useState({
-    buildingSize: false,
-    askingPrice: false,
-    capRate: false,
-    buildingClass: false
-  });
-
-  const propertyTypes = [
-    { 
-      name: 'Office', 
-      id: 'office',
-      subTypes: ['Self Storage', 'Data Centers', 'Student Housing']
-    },
-    { name: 'Retail', id: 'retail' },
-    { name: 'Industrial', id: 'industrial' },
-    { name: 'Multi Family', id: 'multiFamily' },
-    { name: 'Hospitality', id: 'hospitality' },
-    { name: 'Medical', id: 'medical' },
-    { name: 'Mixed Use', id: 'mixedUse' },
-    { name: 'Self Storage', id: 'selfStorage' },
-    { name: 'Data Centers', id: 'dataCenters' },
-    { name: 'Student Housing', id: 'studentHousing' },
-    { name: 'Senior Housing', id: 'seniorHousing' },
-    { name: 'Special Purpose', id: 'specialPurpose' },
-    { name: 'Land', id: 'land' }
-  ];
-
-  const togglePopup = (field) => {
-    setShowPopups(prev => ({
-      ...prev,
-      [field]: !prev[field]
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
     }));
   };
 
-  const handleBuildingClass = (className) => {
-    setFormData(prev => ({
-      ...prev,
-      buildingClass: prev.buildingClass.includes(className)
-        ? prev.buildingClass.filter(c => c !== className)
-        : [...prev.buildingClass, className]
+  const handleMLSChange = (value) => {
+    setFormData(prevState => ({
+      ...prevState,
+      hasMLS: value
     }));
   };
 
-  const handleTypeSelect = (typeId) => {
-    setSelectedTypes(prev => ({
-      ...prev,
-      [typeId]: !prev[typeId]
-    }));
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle form submission
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4 md:p-6 lg:p-8">
-      <div className="max-w-7xl mx-auto bg-white rounded-lg shadow-sm p-6">
+    <div className="max-w-4xl mx-auto p-6 bg-[#ffffff]">
+      <form onSubmit={handleSubmit} className="space-y-6">
         <h1 className="text-2xl font-semibold text-center text-[#151D48] mb-8">
-          For Sale: Please Enter Property Details Below
+          Email Information
         </h1>
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-          {/* Property Types Section */}
-          <div className="bg-white rounded-lg p-4">
-            <div className="mb-4">
-              <h2 className="text-lg font-medium mb-2">Property Types</h2>
-              <button className="text-sm text-blue-600 hover:text-blue-800">
-                Select All
-              </button>
-            </div>
-
-            <div className="space-y-3">
-              {propertyTypes.map((type) => (
-                <div key={type.id} className="ml-2">
-                  <label className="flex items-center space-x-2 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      checked={selectedTypes[type.id] || false}
-                      onChange={() => handleTypeSelect(type.id)}
-                      className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-                    />
-                    <span className="text-sm">{type.name}</span>
-                  </label>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Form Fields Section */}
-          <div className="lg:col-span-3 space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* State Field */}
-              <div>
-                <label className="block text-sm font-medium text-[#001C46] mb-1">
-                  State <span className="text-red-500">*</span>
-                </label>
-                <select
-                  className="w-full px-4 py-2 bg-[#FCFCFD] border border-[#F1F1F3] rounded-md focus:outline-none focus:ring-2 focus:ring-secondary"
-                  value={formData.state}
-                  onChange={(e) => setFormData({...formData, state: e.target.value})}
-                >
-                  <option value="">Select State</option>
-                </select>
-              </div>
-
-              {/* County Field */}
-              <div>
-                <label className="block text-sm font-medium text-[#001C46] mb-1">
-                  County <span className="text-red-500">*</span>
-                </label>
-                <select
-                  className="w-full px-4 py-2 bg-[#FCFCFD] border border-[#F1F1F3] rounded-md focus:outline-none focus:ring-2 focus:ring-secondary"
-                  value={formData.county}
-                  onChange={(e) => setFormData({...formData, county: e.target.value})}
-                >
-                  <option value="">Select County</option>
-                </select>
-              </div>
-
-              {/* Zip Code Field */}
-              <div>
-                <label className="block text-sm font-medium text-[#001C46] mb-1">
-                  Zip Code <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  className="w-full px-4 py-2 bg-[#FCFCFD] border border-[#F1F1F3] rounded-md focus:outline-none focus:ring-2 focus:ring-secondary"
-                  value={formData.zipCode}
-                  onChange={(e) => setFormData({...formData, zipCode: e.target.value})}
-                />
-              </div>
-
-              {/* Building Size Field */}
-              <div className="relative">
-                <label className="block text-sm font-medium text-[#001C46] mb-1">
-                  Building Size <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  className="w-full px-4 py-2 bg-[#FCFCFD] border border-[#F1F1F3] rounded-md focus:outline-none focus:ring-2 focus:ring-secondary"
-                  value={formData.buildingSize}
-                  onClick={() => togglePopup('buildingSize')}
-                  readOnly
-                />
-                {showPopups.buildingSize && (
-                  <div className="absolute z-10 mt-1 w-full bg-white border rounded-md shadow-lg p-4">
-                    <div className="flex justify-between mb-2">
-                      <span>Hide</span>
-                      <button onClick={() => togglePopup('buildingSize')} className="text-gray-500">
-                        ✕
-                      </button>
-                    </div>
-                    <label className="flex items-center space-x-2">
-                      <input
-                        type="checkbox"
-                        className="rounded border-gray-300"
-                      />
-                      <span>Enter Building Size</span>
-                    </label>
-                  </div>
-                )}
-              </div>
-
-              {/* Asking Price Field */}
-              <div className="relative">
-                <label className="block text-sm font-medium text-[#001C46] mb-1">
-                  Asking Price <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  className="w-full px-4 py-2 bg-[#FCFCFD] border border-[#F1F1F3] rounded-md focus:outline-none focus:ring-2 focus:ring-secondary"
-                  value={formData.askingPrice}
-                  onClick={() => togglePopup('askingPrice')}
-                  readOnly
-                />
-                {showPopups.askingPrice && (
-                  <div className="absolute z-10 mt-1 w-full bg-white border rounded-md shadow-lg p-4">
-                    <div className="flex justify-between mb-2">
-                      <span>Contact for Price</span>
-                      <button onClick={() => togglePopup('askingPrice')} className="text-gray-500">
-                        ✕
-                      </button>
-                    </div>
-                    <label className="flex items-center space-x-2">
-                      <input
-                        type="checkbox"
-                        className="rounded border-gray-300"
-                      />
-                      <span>Enter Price</span>
-                    </label>
-                  </div>
-                )}
-              </div>
-
-              {/* Cap Rate Field */}
-              <div className="relative">
-                <label className="block text-sm font-medium text-[#001C46] mb-1">
-                  Cap Rate %
-                </label>
-                <input
-                  type="text"
-                  className="w-full px-4 py-2 bg-[#FCFCFD] border border-[#F1F1F3] rounded-md focus:outline-none focus:ring-2 focus:ring-secondary"
-                  value={formData.capRate}
-                  onClick={() => togglePopup('capRate')}
-                  readOnly
-                />
-                {showPopups.capRate && (
-                  <div className="absolute z-10 mt-1 w-full bg-white border rounded-md shadow-lg p-4">
-                    <div className="flex justify-between mb-2">
-                      <span>Hide</span>
-                      <button onClick={() => togglePopup('capRate')} className="text-gray-500">
-                        ✕
-                      </button>
-                    </div>
-                    <label className="flex items-center space-x-2">
-                      <input
-                        type="checkbox"
-                        className="rounded border-gray-300"
-                      />
-                      <span>Enter Cap Rate</span>
-                    </label>
-                  </div>
-                )}
-              </div>
-
-              {/* Building Class Field */}
-              <div className="relative">
-                <label className="block text-sm font-medium text-[#001C46] mb-1">
-                  Building Class
-                </label>
-                <input
-                  type="text"
-                  className="w-full px-4 py-2 bg-[#FCFCFD] border border-[#F1F1F3] rounded-md focus:outline-none focus:ring-2 focus:ring-secondary"
-                  value={formData.buildingClass.join(', ')}
-                  onClick={() => togglePopup('buildingClass')}
-                  readOnly
-                />
-                {showPopups.buildingClass && (
-                  <div className="absolute z-10 mt-1 w-full bg-white border rounded-md shadow-lg p-4">
-                    {['Class A', 'Class B', 'Class C'].map((className) => (
-                      <label key={className} className="flex items-center space-x-2 mb-2">
-                        <input
-                          type="checkbox"
-                          checked={formData.buildingClass.includes(className)}
-                          onChange={() => handleBuildingClass(className)}
-                          className="rounded border-gray-300"
-                        />
-                        <span>{className}</span>
-                      </label>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </div>
-
-            {/* Next Button */}
-            <div className="flex justify-center mt-8">
-              <button
-                type="button"
-                className="px-14 py-3 bg-purple-600 text-white rounded-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
-              >
-                Next
-              </button>
-            </div>
-          </div>
+        {/* Email Subject Line */}
+        <div className="space-y-2">
+          <label className="block text-sm font-medium text-[#001C46]">
+            Email Subject Line <span className="text-red-500">*</span>
+          </label>
+          <input
+            type="text"
+            name="emailSubject"
+            value={formData.emailSubject}
+            onChange={handleChange}
+            className="w-full px-4 py-2 bg-[#FCFCFD] border border-[#F1F1F3] rounded-md focus:outline-none focus:ring-2 focus:ring-secondary"
+            required
+          />
         </div>
-      </div>
+
+        {/* From Line */}
+        <div className="space-y-2">
+          <label className="block text-sm font-medium text-[#001C46]">
+            From Line <span className="text-red-500">*</span>
+          </label>
+          <input
+            type="text"
+            name="fromLine"
+            value={formData.fromLine}
+            onChange={handleChange}
+            className="w-full px-4 py-2 bg-[#FCFCFD] border border-[#F1F1F3] rounded-md focus:outline-none focus:ring-2 focus:ring-secondary"
+            required
+          />
+        </div>
+
+        {/* Reply to Address */}
+        <div className="space-y-2">
+          <label className="block text-sm font-medium text-[#001C46]">
+            Reply to Address <span className="text-red-500">*</span>
+          </label>
+          <input
+            type="email"
+            name="replyAddress"
+            value={formData.replyAddress}
+            onChange={handleChange}
+            className="w-full px-4 py-2 bg-[#FCFCFD] border border-[#F1F1F3] rounded-md focus:outline-none focus:ring-2 focus:ring-secondary"
+            required
+          />
+        </div>
+
+        {/* Flyer Headline */}
+        <div className="space-y-2">
+          <label className="block text-sm font-medium text-[#001C46]">
+            Flyer Headline <span className="text-red-500">*</span>
+          </label>
+          <input
+            type="text"
+            name="flyerHeadline"
+            value={formData.flyerHeadline}
+            onChange={handleChange}
+            className="w-full px-4 py-2 bg-[#FCFCFD] border border-[#F1F1F3] rounded-md focus:outline-none focus:ring-2 focus:ring-secondary"
+            required
+          />
+        </div>
+
+        {/* MLS Number Section */}
+        <div className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium text-[#001C46]">
+              Do you have a MLS number? <span className="text-red-500">*</span>
+            </label>
+            <div className="flex gap-4 mt-2">
+              <label className="flex items-center cursor-pointer">
+                <div className="relative">
+                  <input
+                    type="checkbox"
+                    checked={formData.hasMLS === 'yes'}
+                    onChange={() => handleMLSChange('yes')}
+                    className="sr-only"
+                  />
+                  <div className={`w-4 h-4 border rounded ${formData.hasMLS === 'yes'
+                    ? 'bg-[#2563eb] border-[#2563eb]'
+                    : 'bg-white border-[#F1F1F3]'
+                    }`}>
+                    {formData.hasMLS === 'yes' && (
+                      <svg
+                        className="w-4 h-4 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                    )}
+                  </div>
+                </div>
+                <span className="ml-2">Yes</span>
+              </label>
+
+              <label className="flex items-center cursor-pointer">
+                <div className="relative">
+                  <input
+                    type="checkbox"
+                    checked={formData.hasMLS === 'no'}
+                    onChange={() => handleMLSChange('no')}
+                    className="sr-only"
+                  />
+
+                  <div className={`w-4 h-4 border rounded ${formData.hasMLS === 'no'
+                    ? 'bg-[#2563eb] border-[#2563eb]'
+                    : 'bg-white border-[#F1F1F3]'
+                    }`}>
+                    {formData.hasMLS === 'no' && (
+                      <svg
+                        className="w-4 h-4 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                    )}
+                  </div>
+                </div>
+                <span className="ml-2">No</span>
+              </label>
+            </div>
+          </div>
+          {formData.hasMLS === 'yes' && (
+            <input
+              type="text"
+              name="mlsNumber"
+              value={formData.mlsNumber}
+              onChange={handleChange}
+              className="w-full px-4 py-2 bg-[#FCFCFD] border text-[#001C46] opacity-[58%] border-[#F1F1F3] rounded-md focus:outline-none focus:ring-2 focus:ring-secondary"
+            />
+          )}
+        </div>
+
+        {/* Next Button */}
+        <div className="flex justify-center mt-8">
+          <button
+            type="submit"
+            className="px-14 py-3 bg-primary text-white rounded-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2"
+          >
+            Next
+          </button>
+        </div>
+      </form>
     </div>
   );
 };
 
-export default ForSale;
+export default ForSaleForm;

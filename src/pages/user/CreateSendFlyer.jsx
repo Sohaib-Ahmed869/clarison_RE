@@ -8,12 +8,13 @@ import ForSaleForm from '../createSendFlyer/ForSaleForm'
 import ForSale from '../createSendFlyer/ForSale'
 import ForLease from '../createSendFlyer/ForLease'
 import Auctions from '../createSendFlyer/Auctions'
+import { Outlet } from 'react-router-dom'
 
 
 const CreateSendFlyer = () => {
   return (
     <div>
-      <MainDash/>
+      {/* <MainDash/> */}
       {/* <Dash2/> */}
       {/* <ForSaleForm /> */}
       {/* <ForSale/> */}
@@ -23,6 +24,7 @@ const CreateSendFlyer = () => {
       {/* --> Account settings  */}
       {/* <CompanyProfile/> */}
       {/* <CompanyProfileEdit /> */}
+      <Outlet/>
     </div>
   )
 }

@@ -17,6 +17,9 @@ const UpdateMySchedule = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const handleUpdate = () => {
+  }
+
   return (
     <div className="flex items-center h-full w-full flex-col gap-10 p-5">
       <div className="h-5/6 w-full flex items-center py-10 gap-10 flex-col rounded-3xl bg-white">
