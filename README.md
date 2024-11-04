@@ -9,3 +9,5 @@ Currently, two official plugins are available:
 # ClarisonRE
 # clarisonRE
 # clarisonRE
+
+haider updated this readme
