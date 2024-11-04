@@ -33,11 +33,11 @@ export default function CustomPagination({
         disabled={page === 0}
         className={`px-3 py-2  gap-2 flex items-center justify-center border   border-[#858D9D] rounded-xl ${
           page === 0
-            ? "text-gray-400  border-gray-400  cursor-not-allowed"
+            ? "text-gray-400   border border-gray-200  cursor-not-allowed"
             : "text-gray-700 hover:bg-gray-200"
         }`}
       >
-        <img src={leftArrow} className="w-5" alt="left arrow" />
+        <img src={leftArrow} className={`w-5 ${page === totalPages - 1 ?"": "opacity-40"} `} alt="left arrow" />
         Previous
       </button>
 
@@ -61,12 +61,16 @@ export default function CustomPagination({
         disabled={page === totalPages - 1}
         className={`px-3 py-2 flex gap-2 items-center justify-center border border-[#858D9D] rounded-xl ${
           page === totalPages - 1
-            ? "text-gray-400  border-gray-400  cursor-not-allowed"
+            ? "text-gray-400   border border-gray-200  cursor-not-allowed"
             : "text-gray-700 hover:bg-gray-200"
         }`}
       >
         Next
-        <img src={rightArrow} className="w-5" alt="right arrow" />
+        <img
+          src={rightArrow}
+          className={`w-5 ${page === totalPages - 1 ? "opacity-40" : ""} `}
+          alt="right arrow"
+        />
       </button>
     </div>
   );
