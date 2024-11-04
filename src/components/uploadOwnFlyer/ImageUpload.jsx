@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import imagePlus from "../../assets/uploadOwnFlyer/image-plus.png";
 
-const ImageUpload = ({ uploadedImage, setUploadImage, onNext}) => {
+const ImageUpload = ({ uploadedImage, setUploadImage, onNext }) => {
     const fileInputRef = useRef(null);
     const [previewUrl, setPreviewUrl] = useState(null);
     const [isDragging, setIsDragging] = useState(false);
@@ -60,7 +60,8 @@ const ImageUpload = ({ uploadedImage, setUploadImage, onNext}) => {
             <div
                 className={`relative w-full max-w-md aspect-[3/4] rounded-xl border-2 border-dashed 
                     ${isDragging ? 'border-primary bg-purple-50' : 'border-gray-300'} 
-                    transition-all duration-200 cursor-pointer hover:border-primary`}
+                    transition-all duration-200 cursor-pointer hover:border-primary
+                    ${previewUrl ? 'border-transparent hover:border-transparent' : ''}`}
                 onClick={handleClick}
                 onDragOver={handleDragOver}
                 onDragLeave={handleDragLeave}
@@ -70,13 +71,13 @@ const ImageUpload = ({ uploadedImage, setUploadImage, onNext}) => {
                     <img
                         src={previewUrl}
                         alt="Uploaded flyer"
-                        className="w-full h-full object-cover rounded-lg"
+                        className="w-full h-full object-contain rounded-lg"
                     />
                 ) : (
                     <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
-                        <img 
-                            src={imagePlus} 
-                            alt="Upload icon" 
+                        <img
+                            src={imagePlus}
+                            alt="Upload icon"
                             className="w-16 h-16 mb-4"
                         />
                         <p className="text-sm text-gray-500">Click to upload flyer</p>
