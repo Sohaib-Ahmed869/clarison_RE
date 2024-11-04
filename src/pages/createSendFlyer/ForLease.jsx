@@ -77,7 +77,7 @@ const ForLease = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(formData);
-        router('/user/create-send-flyer/sale-form');
+        router('/user/dashboard/sale-form');
     };
 
 
@@ -141,7 +141,7 @@ const ForLease = () => {
 
                 {/* Main Form */}
                 <div className="flex-1">
-                    <h1 className="text-2xl font-semibold text-[#151D48] mb-8">
+                    <h1 className="text-2xl text-center font-semibold text-[#151D48] mb-8">
                         For Lease: Please Enter Property Details Below
                     </h1>
 

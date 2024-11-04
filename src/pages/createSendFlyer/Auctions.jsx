@@ -11,7 +11,6 @@ const Auctions = () => {
         buildingSize: '',
         askingPrice: '',
         capRate: '',
-        askingPrice: '',
         buildingClass: [],
         propertyType: [],
     });
@@ -50,7 +49,7 @@ const Auctions = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(formData);
-        router('/user/create-send-flyer/sale-form');
+        router('/user/dashboard/sale-form');
     };
 
 
@@ -71,7 +70,7 @@ const Auctions = () => {
         { id: 'land', label: 'Land', subTypes: [] },
     ];
 
-    
+
 
     const handleClassChange = (className) => {
         setFormData(prevState => ({
@@ -127,8 +126,8 @@ const Auctions = () => {
 
                 {/* Main Form */}
                 <div className="flex-1">
-                    <h1 className="text-2xl font-semibold text-[#151D48] mb-8">
-                    Auctions: Please Enter Property Details Below
+                    <h1 className="text-2xl text-center font-semibold text-[#151D48] mb-8">
+                        Auctions: Please Enter Property Details Below
                     </h1>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

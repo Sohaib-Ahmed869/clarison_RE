@@ -18,6 +18,7 @@ import Auctions from "./pages/createSendFlyer/Auctions";
 import Dash2 from "./pages/createSendFlyer/Dash2";
 import UpdateMySchedule from "./pages/user/UpdateMySchedule"
 import ForSaleForm from "./pages/createSendFlyer/ForSaleForm";
+import PropertiesWanted from "./pages/createSendFlyer/PropertiesWanted";
 
 const App = () => {
   return (
@@ -25,15 +26,17 @@ const App = () => {
       <Routes>
         {/* User Routes Start */}
         <Route path="/user" element={<UserLayout />}>
-          <Route path="dashboard" element={<Dashboard />} />
-
-          <Route path="create-send-flyer" element={<CreateSendFlyer />}>
-            <Route path="dashboard" element={<MainDash />} />
+          <Route path="dashboard" element={<Dashboard />} >
+            <Route path="" element={<MainDash />} />
             <Route path="for-sale" element={<ForSale />} />
             <Route path="sale-form" element={<ForSaleForm />} />
             <Route path="for-lease" element={<ForLease />} />
             <Route path="auctions" element={<Auctions />} />
-            <Route path="property" element={<Dash2 />} />
+            <Route path="properties-wanted" element={<PropertiesWanted />} />
+          </Route>
+
+          <Route path="create-send-flyer" element={<CreateSendFlyer />}>
+            <Route path="dashboard" element={<Dash2 />} />
           </Route>
 
           <Route path="my-schedule-flyer" element={<MySchedule />} />
