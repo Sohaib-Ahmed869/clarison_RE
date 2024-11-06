@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import PropertyBanner from '../../components/designOwnFlyer/PropertyBanner';
-import template1 from '../../assets/singleProperty/template1.png';
-import template2 from '../../assets/singleProperty/template2.png';
-import template3 from '../../assets/singleProperty/template3.png';
-import template4 from '../../assets/singleProperty/template4.png';
-import template5 from '../../assets/singleProperty/template5.png';
+import template1 from '../../assets/multipleProperty/template1.png';
 
 const TemplateCard = ({ template, handleUseTemplate }) => {
   return (
@@ -26,7 +22,7 @@ const TemplateCard = ({ template, handleUseTemplate }) => {
   );
 };
 
-const SingleProperty = () => {
+const MultipleProperty = () => {
     const [selectedTemplate, setSelectedTemplate] = useState(null);
 
     const handleUseTemplate = (templateId) => {
@@ -39,8 +35,8 @@ const SingleProperty = () => {
             <PropertyBanner />
 
             <div className="mt-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto h-screen overflow-auto">
-                    {singlePropertyTemplates.map((template) => (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto h-screen overflow-auto ">
+                    {multiplePropertyTemplates.map((template) => (
                         <TemplateCard 
                             key={template.id} 
                             template={template} 
@@ -53,32 +49,13 @@ const SingleProperty = () => {
     );
 };
 
-const singlePropertyTemplates = [
+const multiplePropertyTemplates = [
     {
         id: '1',
         templateName: 'Template 1',
         templatePreview: template1,
     },
-    {
-        id: '2',
-        templateName: 'Template 2',
-        templatePreview: template2,
-    },
-    {
-        id: '3',
-        templateName: 'Template 3',
-        templatePreview: template3,
-    },
-    {
-        id: '4',
-        templateName: 'Template 4',
-        templatePreview: template4,
-    },
-    {
-        id: '5',
-        templateName: 'Template 5',
-        templatePreview: template5,
-    },
+
 ];
 
-export default SingleProperty;
+export default MultipleProperty;

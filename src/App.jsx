@@ -22,6 +22,9 @@ import PropertiesWanted from "./pages/createSendFlyer/PropertiesWanted";
 import FilterAudience from "./components/common/FilterAudience";
 import SelectMarket from "./components/common/SelectMarket";
 import SingleProperty from "./pages/singleProperty/SingleProperty";
+import MultipleProperty from "./pages/multipleProperty/MultipleProperty";
+import OwnHtmlForm from "./components/useOwnHtml/OwnHtmlForm";
+import ImageUpload from "./components/uploadOwnFlyer/ImageUpload";
 
 const App = () => {
   return (
@@ -43,6 +46,9 @@ const App = () => {
           </Route>
 
           <Route path="single-property" element={<SingleProperty/>} />
+          <Route path="multiple-property" element={<MultipleProperty/>} />
+          <Route path="own-html" element={<OwnHtmlForm/>} />
+          <Route path="upload-flyer" element={<ImageUpload/>} />
 
 
           <Route path="my-schedule-flyer" element={<MySchedule />} />
