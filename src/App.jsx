@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import UserLayout from "./components/layout/UserLayout";
 import Dashboard from "./pages/user/Dashboard";
 import CreateSendFlyer from "./pages/user/CreateSendFlyer";
@@ -21,12 +21,13 @@ import ForSaleForm from "./pages/createSendFlyer/ForSaleForm";
 import PropertiesWanted from "./pages/createSendFlyer/PropertiesWanted";
 import FilterAudience from "./components/common/FilterAudience";
 import SelectMarket from "./components/common/SelectMarket";
+import SingleProperty from "./pages/singleProperty/SingleProperty";
 
 const App = () => {
   return (
     <>
       <Routes>
-        {/* User Routes Start */}
+        <Route path="/" element={<Navigate to="/user/dashboard" />} />
         <Route path="/user" element={<UserLayout />}>
           <Route path="dashboard" element={<Dashboard />}>
             <Route path="" element={<MainDash />} />
@@ -41,6 +42,9 @@ const App = () => {
             <Route path="dashboard" element={<Dash2 />} />
           </Route>
 
+          <Route path="single-property" element={<SingleProperty/>} />
+
+
           <Route path="my-schedule-flyer" element={<MySchedule />} />
           <Route
             path="my-schedule-flyer/update"
@@ -48,7 +52,7 @@ const App = () => {
           />
           <Route path="my-targeted-audience" element={<TargetedAudience />}>
             <Route path="filter-audience" element={<FilterAudience />} />
-            <Route path="select-market" element={<SelectMarket titleText={"Select the Markets/Submarkets"}   />} />
+            <Route path="select-market" element={<SelectMarket titleText={"Select the Markets/Submarkets"} />} />
           </Route>
 
           <Route path="my-saved-work" element={<MySavedWork />} />

@@ -121,7 +121,7 @@ const FlyerBuilderTemplate1 = () => {
   };
 
   return (
-    <div className="grid grid-cols-2 gap-8 p-6 bg-gray-50 min-h-screen">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-6 bg-gray-50 min-h-screen">
       {/* Left Column - Form */}
       <div className="space-y-6">
         <h1 className="text-xl font-semibold text-navy-900">Single Property</h1>
