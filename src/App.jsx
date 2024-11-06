@@ -16,9 +16,11 @@ import ForSale from "./pages/createSendFlyer/ForSale";
 import ForLease from "./pages/createSendFlyer/ForLease";
 import Auctions from "./pages/createSendFlyer/Auctions";
 import Dash2 from "./pages/createSendFlyer/Dash2";
-import UpdateMySchedule from "./pages/user/UpdateMySchedule"
+import UpdateMySchedule from "./pages/user/UpdateMySchedule";
 import ForSaleForm from "./pages/createSendFlyer/ForSaleForm";
 import PropertiesWanted from "./pages/createSendFlyer/PropertiesWanted";
+import FilterAudience from "./components/common/FilterAudience";
+import SelectMarket from "./components/common/SelectMarket";
 
 const App = () => {
   return (
@@ -26,7 +28,7 @@ const App = () => {
       <Routes>
         {/* User Routes Start */}
         <Route path="/user" element={<UserLayout />}>
-          <Route path="dashboard" element={<Dashboard />} >
+          <Route path="dashboard" element={<Dashboard />}>
             <Route path="" element={<MainDash />} />
             <Route path="for-sale" element={<ForSale />} />
             <Route path="sale-form" element={<ForSaleForm />} />
@@ -40,13 +42,23 @@ const App = () => {
           </Route>
 
           <Route path="my-schedule-flyer" element={<MySchedule />} />
-          <Route path="my-schedule-flyer/update" element={<UpdateMySchedule />} />
-          <Route path="my-targeted-audience" element={<TargetedAudience />} />
+          <Route
+            path="my-schedule-flyer/update"
+            element={<UpdateMySchedule />}
+          />
+          <Route path="my-targeted-audience" element={<TargetedAudience />}>
+            <Route path="filter-audience" element={<FilterAudience />} />
+            <Route path="select-market" element={<SelectMarket titleText={"Select the Markets/Submarkets"}   />} />
+          </Route>
+
           <Route path="my-saved-work" element={<MySavedWork />} />
           <Route path="clarison-support" element={<ClarisonRESupport />} />
           <Route path="account-setting" element={<AccountSetting />}>
             <Route path="company-profile" element={<CompanyProfile />} />
-            <Route path="company-profile-edit" element={<CompanyProfileEdit />} />
+            <Route
+              path="company-profile-edit"
+              element={<CompanyProfileEdit />}
+            />
           </Route>
         </Route>
         {/* User Routes End */}

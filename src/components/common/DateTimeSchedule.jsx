@@ -10,7 +10,8 @@ const DateTimeSchedule = ({ buttonText }) => {
   const handleClose = () => setOpen(false);
 
   return (
-    <div className="flex items-center h-full w-full flex-col gap-10 p-5">
+    <>
+        <div className="flex items-center h-full w-full flex-col gap-10 p-5">
       <div className="h-5/6 w-full flex items-center py-10 gap-10 flex-col rounded-3xl bg-white">
         <h1 className="text-xl sm:text-3xl text-center w-full font-semibold text-gray-800">
           Change Date & Time
@@ -55,6 +56,8 @@ const DateTimeSchedule = ({ buttonText }) => {
         />
       </div>
     </div>
+    </>
+
   );
 };
 

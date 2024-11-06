@@ -21,7 +21,8 @@ import filterIcon from "../../assets/dataTable/Filter.png";
 import PlusIcon from "../../assets/dataTable/plus-sign.png";
 import Button from "@mui/material/Button";
 import CloseIcon from "@mui/icons-material/Close";
-import { NavLink } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import FilterAudience from "./FilterAudience";
 
 function EnhancedTableHead({ headCells, hiddenColumns }) {
   return (
@@ -172,7 +173,7 @@ export default function DataTable({ headCells, rows, title, uniqueName }) {
   };
 
   const handleDeleteTarget = (id) => {
-    console.log("Delete", id);
+    console.log("DeleteTarget", id);
   };
 
   const handleUpdate = (id) => {
@@ -180,7 +181,7 @@ export default function DataTable({ headCells, rows, title, uniqueName }) {
   };
 
   const handleUpdateTarget = (id) => {
-    console.log("Update", id);
+    console.log("UpdateTarget", id);
     handleOpen();
   };
 
@@ -192,7 +193,13 @@ export default function DataTable({ headCells, rows, title, uniqueName }) {
     () => rows.slice(page * rowsPerPage, (page + 1) * rowsPerPage),
     [page, rowsPerPage, rows]
   );
-
+ 
+  const navigate = useNavigate();
+  const handleContinue = () => {
+    handleClose();
+    navigate("/user/my-targeted-audience/filter-audience");
+  };
+  
   return (
     <div className="bg-white shadow-[#EEEEEE] shadow-lg rounded-3xl h-full p-5 relative z-30">
       <EnhancedTableToolbar
@@ -226,7 +233,7 @@ export default function DataTable({ headCells, rows, title, uniqueName }) {
                       !hiddenColumns.includes(headCell.id) && (
                         <TableCell
                           key={headCell.id}
-                          className={`!text-md lg:!text-lg ${
+                          className={`!text-md  lg:!text-lg ${
                             index === 0 ? "!text-gray-800 !font-semibold" : ""
                           } ${
                             uniqueName === "Targeted-Audience" && index === 1
@@ -283,14 +290,14 @@ export default function DataTable({ headCells, rows, title, uniqueName }) {
                             className={
                               uniqueName === "My-Schedule"
                                 ? row.status === "Completed"
-                                  ? "text-green-500 font-semibold"
+                                  ? "text-green-500 font-normal font-roboto"
                                   : row.status === "Pending"
-                                  ? "text-orange-500 font-semibold"
+                                  ? "text-orange-500 font-normal font-roboto"
                                   : row.status === "Canceled"
-                                  ? "text-red-500 font-semibold"
+                                  ? "text-red-500 font-normal font-roboto"
                                   : ""
                                 : uniqueName === "Saved-Work" && row.status === "Draft"
-                                ? "text-orange-500 font-semibold"
+                                ? "text-orange-500 font-normal font-roboto"
                                 : ""
                             }
                           >
@@ -352,13 +359,15 @@ export default function DataTable({ headCells, rows, title, uniqueName }) {
               className="border outline-none h-12 rounded-xl w-full p-2"
             />
           </Typography>
+          
           <button
             className="!bg-secondary !text-white !w-52 !h-11 text-base !rounded-full flex gap-2 items-center justify-center"
-            onClick={handleClose}
+            onClick={handleContinue}  // Call handleContinue on button click
             type="submit"
-          >
+            >
             Continue
           </button>
+        
         </Box>
       </Modal>
     </div>

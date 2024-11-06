@@ -1,5 +1,6 @@
 import React from 'react';
 import DataTable from '../../components/common/DataTable';
+import { Outlet, useLocation } from 'react-router-dom';
 
 const headCells = [
   { id: "targetId", numeric: false, label: "ID" },
@@ -20,16 +21,24 @@ const rows = [
 
 const MyTargetedAudience = () => {
   const uniqueName = "Targeted-Audience";
+  const location = useLocation();
 
   return (
+    <>
     <div className="rounded lg:p-10">
+    {location.pathname === '/user/my-targeted-audience' && (
       <DataTable
         headCells={headCells}
         rows={uniqueName === "Targeted-Audience" ? rows : []} // Conditionally pass rows based on uniqueName
         title="My Targeted Audience"
         uniqueName={uniqueName}
-      />
+        />
+      )}
+
+      {/* Render nested route components like FilterAudience */}
+      <Outlet />
     </div>
+        </>
   );
 };
 
