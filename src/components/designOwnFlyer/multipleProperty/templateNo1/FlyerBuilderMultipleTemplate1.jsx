@@ -18,6 +18,11 @@ const FlyerBuilderMultipleTemplate1 = () => {
         }
     });
 
+    const handleSubmitForm = (e) => {
+        e.preventDefault();
+        console.log('Form data submitted:', formData);
+    };
+
     const handleInputChange = (field, value, propertyId = null) => {
         if (propertyId) {
             setFormData(prev => ({
