@@ -10,7 +10,7 @@ const OwnHtmlPreview = ({ onNext }) => {
                 className={`relative w-full max-w-md aspect-[3/4] rounded-xl border-2 border-dashed `}
             > */}
             <div
-                className={`relative  max-w-md w-[645px] h-[1020px] rounded-xl border-2 border-dashed `}
+                className={`relative  max-w-md w-[645px] h-[1220px] rounded-xl border-2 border-dashed `}
             >
                 <iframe
                     className="w-full h-full rounded-lg"

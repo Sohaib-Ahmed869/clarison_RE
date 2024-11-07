@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Image as ImageIcon } from 'lucide-react';
 import imageUploadIcon from '../../../../assets/uploadOwnFlyer/image-plus.png';
 import template2Preview from '../../../../assets/singleProperty/template2-preview.png';
+import FlyerTemplate2Preview from './FlyerTemplate2Preview';
 
 const FlyerBuilderTemplate2 = () => {
     const [formData, setFormData] = useState({
@@ -237,8 +238,9 @@ const FlyerBuilderTemplate2 = () => {
                 {/* Right Column - Preview */}
                 <div className="space-y-6">
                     {/* Preview will be implemented later */}
-                    <div className="h-full flex items-center justify-center text-gray-500">
-                        <img src={template2Preview} alt="Template 2 Preview" className=" object-contain" />
+                    <div className="h-full flex items-start pt-12 justify-center text-gray-500 ">
+                        {/* <img src={template2Preview} alt="Template 2 Preview" className=" object-contain" /> */}
+                        <FlyerTemplate2Preview formData={formData} />
                     </div>
                 </div>
 

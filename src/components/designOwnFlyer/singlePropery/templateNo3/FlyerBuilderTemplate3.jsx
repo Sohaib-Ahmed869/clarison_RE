@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Image as ImageIcon } from 'lucide-react';
 import template3Preview from '../../../../assets/singleProperty/template3-preview.png';
+import FlyerTemplate3Preview from './FlyerTemplate3Preview';
 
 const FlyerBuilderTemplate3 = () => {
     const [formData, setFormData] = useState({
@@ -176,18 +177,8 @@ const FlyerBuilderTemplate3 = () => {
                                 />
                             </div>
 
-                            {/* Bottom Text */}
-                            <div>
-                                <textarea
-                                    value={formData.bottomText}
-                                    onChange={(e) => handleInputChange('bottomText', e.target.value)}
-                                    placeholder="Click here to add details"
-                                    className="w-full h-full p-3 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-none"
-                                />
-                            </div>
-
-                            {/* Bottom Right Image */}
-                            <div
+{/* Bottom Right Image */}
+<div
                                 onClick={() => document.getElementById('bottom-image-2').click()}
                                 className="aspect-square border-2 border-dashed border-gray-300 rounded-lg p-4 flex flex-col items-center justify-center cursor-pointer hover:border-indigo-500 transition-colors"
                             >
@@ -211,6 +202,18 @@ const FlyerBuilderTemplate3 = () => {
                                     className="hidden"
                                 />
                             </div>
+                            
+                            {/* Bottom Text */}
+                            <div>
+                                <textarea
+                                    value={formData.bottomText}
+                                    onChange={(e) => handleInputChange('bottomText', e.target.value)}
+                                    placeholder="Click here to add details"
+                                    className="w-full h-full p-3 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-none"
+                                />
+                            </div>
+
+                            
                         </div>
 
                         {/* Save Draft Button */}
@@ -227,7 +230,8 @@ const FlyerBuilderTemplate3 = () => {
                 <div className="space-y-6">
                     {/* Preview will be implemented later */}
                     <div className="h-full flex items-center justify-center text-gray-500">
-                        <img src={template3Preview} alt="Template 2 Preview" className=" object-contain" />
+                        {/* <img src={template3Preview} alt="Template 2 Preview" className=" object-contain" /> */}
+                        <FlyerTemplate3Preview formData={formData} />
                     </div>
                 </div>
             </div>

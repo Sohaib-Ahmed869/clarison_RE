@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Image as ImageIcon } from 'lucide-react';
 import template5Preview from '../../../../assets/singleProperty/template5-preview.png';
+import FlyerTemplate5Preview from './FlyerTemplate5Preview';
 
 const FlyerBuilderTemplate5 = () => {
     const [formData, setFormData] = useState({
@@ -167,7 +168,8 @@ const FlyerBuilderTemplate5 = () => {
                 <div className="space-y-6">
                     {/* Preview will be implemented later */}
                     <div className="h-full flex items-center justify-center text-gray-500">
-                        <img src={template5Preview} alt="Template 2 Preview" className=" object-contain" />
+                        {/* <img src={template5Preview} alt="Template 2 Preview" className=" object-contain" /> */}
+                        <FlyerTemplate5Preview formData={formData} />
                     </div>
                 </div>
             </div>

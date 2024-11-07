@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Image as ImageIcon } from 'lucide-react';
 import template4Preview from '../../../../assets/singleProperty/template4-preview.png';
+import FlyerTemplate4Preview from './FlyerTemplate4Preview';
 
 const FlyerBuilderTemplate4 = () => {
     const [formData, setFormData] = useState({
@@ -9,17 +10,22 @@ const FlyerBuilderTemplate4 = () => {
         mainImage: null,
         sideImages: [
             { id: 'side1', image: null },
-            { id: 'side2', image: null }
+            { id: 'side2', image: null },
         ],
         centerImage: null,
         title2: '',
-        details: '',
+        middleImages: [
+            { id: 'middle1', image: null },
+            { id: 'middle2', image: null },
+        ],
+        details1: '',
+        details2: '',
         bottomImages: [
             { id: 'bottom1', image: null },
             { id: 'bottom2', image: null },
             { id: 'bottom3', image: null },
-            { id: 'bottom4', image: null }
-        ]
+            { id: 'bottom4', image: null },
+        ],
     });
 
     const handleInputChange = (field, value) => {
@@ -27,6 +33,7 @@ const FlyerBuilderTemplate4 = () => {
             ...prev,
             [field]: value
         }));
+        console.log("formData", formData);
     };
 
     const handleImageUpload = (e, imageType, imageId = null) => {
@@ -55,6 +62,15 @@ const FlyerBuilderTemplate4 = () => {
                     setFormData(prev => ({
                         ...prev,
                         bottomImages: prev.bottomImages.map(img =>
+                            img.id === imageId ? { ...img, image: { file, preview: reader.result } } : img
+                        )
+                    }
+                    ));
+                }
+                else if (imageType === 'middle') {
+                    setFormData(prev => ({
+                        ...prev,
+                        middleImages: prev.middleImages.map(img =>
                             img.id === imageId ? { ...img, image: { file, preview: reader.result } } : img
                         )
                     }));
@@ -102,9 +118,9 @@ const FlyerBuilderTemplate4 = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-6 ">
                 {/* Left Column - Form */}
                 <div className="space-y-6 p-10 bg-white">
-                    <h1 className="text-2xl font-bold text-center text-indigo-900">Single Property</h1>
+                    <h1 className="text-xl font-bold text-center text-indigo-900">Single Property</h1>
 
-                    {/* Title Inputs */}
+                    {/* Title and Subtitle */}
                     <input
                         type="text"
                         value={formData.title}
@@ -120,16 +136,12 @@ const FlyerBuilderTemplate4 = () => {
                         className="w-full p-3 border rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     />
 
-                    {/* Main Image Upload */}
-                    <ImageUploadBox
-                        id="mainImageUpload"
-                        image={formData.mainImage}
-                        type="main"
-                    />
+                    {/* Main Image */}
+                    <ImageUploadBox id="mainImageUpload" image={formData.mainImage} type="main" />
 
                     {/* Side Images */}
                     <div className="grid grid-cols-2 gap-4">
-                        {formData.sideImages.map((img) => (
+                        {formData.sideImages.map(img => (
                             <ImageUploadBox
                                 key={img.id}
                                 id={`sideImage-${img.id}`}
@@ -142,31 +154,51 @@ const FlyerBuilderTemplate4 = () => {
                     </div>
 
                     {/* Center Image */}
-                    <ImageUploadBox
-                        id="centerImageUpload"
-                        image={formData.centerImage}
-                        type="center"
-                        size="medium"
-                    />
+                    <ImageUploadBox id="centerImageUpload" image={formData.centerImage} type="center" size="medium" />
 
-                    {/* Second Title and Details */}
-                    <input
-                        type="text"
-                        value={formData.title2}
-                        onChange={(e) => handleInputChange('title2', e.target.value)}
-                        placeholder="Click here to add title"
-                        className="w-full p-3 border rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                    />
-                    <textarea
-                        value={formData.details}
-                        onChange={(e) => handleInputChange('details', e.target.value)}
-                        placeholder="Click here to add details"
-                        className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 min-h-[100px] resize-none"
-                    />
+                    <div className="grid grid-cols-2 gap-1">
+                        {/* Secondary Title and Middle Images */}
+                        <input
+                            type="text"
+                            value={formData.title2}
+                            onChange={(e) => handleInputChange('title2', e.target.value)}
+                            placeholder="Click here to add title"
+                            className="w-full p-3 border rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        />
+                        <div className="grid grid-cols-2 gap-4">
+                            {formData.middleImages.map(img => (
+                                <ImageUploadBox
+                                    key={img.id}
+                                    id={`middleImage-${img.id}`}
+                                    image={img.image}
+                                    type="middle"
+                                    imageId={img.id}
+                                    size="small"
+                                />
+                            ))}
+                        </div>
 
-                    {/* Bottom Images Grid */}
-                    <div className="grid grid-cols-4 gap-4">
-                        {formData.bottomImages.map((img) => (
+                        {/* Details Fields */}
+                        <input
+                            type="text"
+                            value={formData.details1}
+                            onChange={(e) => handleInputChange('details1', e.target.value)}
+                            placeholder="Click here to add details"
+                            className="w-full p-3 border rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        />
+                        <input
+                            type="text"
+                            value={formData.details2}
+                            onChange={(e) => handleInputChange('details2', e.target.value)}
+                            placeholder="Click here to add details"
+                            className="w-full p-3 border rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        />
+
+                    </div>
+
+                    {/* Bottom Images */}
+                    <div className="grid grid-cols-4 gap-2">
+                        {formData.bottomImages.map(img => (
                             <ImageUploadBox
                                 key={img.id}
                                 id={`bottomImage-${img.id}`}
@@ -177,6 +209,7 @@ const FlyerBuilderTemplate4 = () => {
                             />
                         ))}
                     </div>
+
 
                     {/* Save as Draft Button */}
                     <button
@@ -191,7 +224,8 @@ const FlyerBuilderTemplate4 = () => {
                 <div className="space-y-6">
                     {/* Preview will be implemented later */}
                     <div className="h-full flex items-center justify-center text-gray-500">
-                        <img src={template4Preview} alt="Template 2 Preview" className=" object-contain" />
+                        {/* <img src={template4Preview} alt="Template 2 Preview" className=" object-contain" /> */}
+                        <FlyerTemplate4Preview formData={formData} />
                     </div>
                 </div>
             </div>

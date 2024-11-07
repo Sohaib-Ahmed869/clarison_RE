@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Image as ImageIcon } from 'lucide-react';
 import template1Preview from '../../../../assets/multipleProperty/template1-preview.png';
+import FlyerMultipleTemplate1Preview from './FlyerMultipleTemplate1Preview';
 
 const FlyerBuilderMultipleTemplate1 = () => {
     const [formData, setFormData] = useState({
@@ -186,7 +187,8 @@ const FlyerBuilderMultipleTemplate1 = () => {
                 <div className="space-y-6">
                     {/* Preview will be implemented later */}
                     <div className="h-full flex items-center justify-center text-gray-500">
-                        <img src={template1Preview} alt="Template 2 Preview" className=" object-contain" />
+                        {/* <img src={template1Preview} alt="Template 2 Preview" className=" object-contain" /> */}
+                        <FlyerMultipleTemplate1Preview formData={formData} />
                     </div>
                 </div>
 
