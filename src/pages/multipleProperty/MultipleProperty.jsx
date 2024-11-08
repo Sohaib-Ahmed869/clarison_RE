@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropertyBanner from '../../components/designOwnFlyer/PropertyBanner';
 import template1 from '../../assets/multipleProperty/template1.png';
+import { useNavigate } from 'react-router-dom';
 
 const TemplateCard = ({ template, handleUseTemplate }) => {
   return (
@@ -22,12 +23,15 @@ const TemplateCard = ({ template, handleUseTemplate }) => {
   );
 };
 
+
 const MultipleProperty = () => {
     const [selectedTemplate, setSelectedTemplate] = useState(null);
+    const router = useNavigate();
 
-    const handleUseTemplate = (templateId) => {
-        console.log('Selected Template ID:', templateId);
-        setSelectedTemplate(templateId);
+    const handleUseTemplate = (templateLink) => {
+      console.log("templateLink", templateLink);
+      setSelectedTemplate(templateLink);
+      router(`/user/multiple-property/template/${templateLink}`);
     };
 
     return (
@@ -40,7 +44,9 @@ const MultipleProperty = () => {
                         <TemplateCard 
                             key={template.id} 
                             template={template} 
-                            handleUseTemplate={handleUseTemplate}
+                            handleUseTemplate={()=>{
+                                handleUseTemplate(template.link);
+                            }}
                         />
                     ))}
                 </div>
@@ -54,6 +60,7 @@ const multiplePropertyTemplates = [
         id: '1',
         templateName: 'Template 1',
         templatePreview: template1,
+        link: 'template1',
     },
 
 ];

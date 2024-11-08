@@ -25,6 +25,12 @@ import SingleProperty from "./pages/singleProperty/SingleProperty";
 import MultipleProperty from "./pages/multipleProperty/MultipleProperty";
 import OwnHtmlForm from "./components/useOwnHtml/OwnHtmlForm";
 import ImageUpload from "./components/uploadOwnFlyer/ImageUpload";
+import FlyerBuilderTemplate1 from "./components/designOwnFlyer/singlePropery/templateNo1/FlyerBuilderTemplate1";
+import FlyerBuilderTemplate2 from "./components/designOwnFlyer/singlePropery/templateNo2/FlyerBuilderTemplate2";
+import FlyerBuilderTemplate3 from "./components/designOwnFlyer/singlePropery/templateNo3/FlyerBuilderTemplate3";
+import FlyerBuilderTemplate4 from "./components/designOwnFlyer/singlePropery/templateNo4/FlyerBuilderTemplate4";
+import SingleFlyerTemplate from "./pages/singleProperty/SingleFlyerTemplate";
+import MultipleFlyerTemplate from "./pages/multipleProperty/MultipleFlyerTemplate";
 
 const App = () => {
   return (
@@ -45,8 +51,16 @@ const App = () => {
             <Route path="dashboard" element={<Dash2 />} />
           </Route>
 
-          <Route path="single-property" element={<SingleProperty/>} />
-          <Route path="multiple-property" element={<MultipleProperty/>} />
+          <Route path="single-property" >
+            <Route path="" element={<SingleProperty />} />
+            {/* Using dynamic route parameter here */}
+            <Route path="template/:templateId" element={<SingleFlyerTemplate/>} />
+          </Route>
+          <Route path="multiple-property" >
+            <Route path="" element={<MultipleProperty />} />
+            {/* Using dynamic route parameter here */}
+            <Route path="template/:templateId" element={<MultipleFlyerTemplate/>} />
+          </Route>
           <Route path="own-html" element={<OwnHtmlForm/>} />
           <Route path="upload-flyer" element={<ImageUpload/>} />
 
@@ -68,10 +82,10 @@ const App = () => {
             <Route
               path="company-profile-edit"
               element={<CompanyProfileEdit />}
+
             />
           </Route>
         </Route>
-        {/* User Routes End */}
       </Routes>
     </>
   );
