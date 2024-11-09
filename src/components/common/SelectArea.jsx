@@ -44,7 +44,7 @@ function SelectArea() {
   );
 
   return (
-    <div className="relative w-96">
+    <div className="relative w-96 mx-auto">
       {/* Dropdown button */}
       <button
         onClick={toggleDropdown}

@@ -5,8 +5,8 @@ import Dashboard from "./pages/user/Dashboard";
 import CreateSendFlyer from "./pages/user/CreateSendFlyer";
 import MySchedule from "./pages/user/MySchedule";
 import TargetedAudience from "./pages/user/MyTargetedAudience";
-import CompanyProfile from "./pages/AccountSetting/CompanyProfile";
-import CompanyProfileEdit from "./pages/AccountSetting/CompanyProfileEdit";
+import CompanyProfile from "./pages/AccountSetting/companyInfo/CompanyProfile";
+import CompanyProfileEdit from "./pages/AccountSetting/companyInfo/CompanyProfileEdit";
 import MyTargetedAudience from "./pages/user/MyTargetedAudience";
 import MySavedWork from "./pages/user/MySavedWork";
 import ClarisonRESupport from "./pages/user/ClarisonRESupport";
@@ -31,6 +31,11 @@ import FlyerBuilderTemplate3 from "./components/designOwnFlyer/singlePropery/tem
 import FlyerBuilderTemplate4 from "./components/designOwnFlyer/singlePropery/templateNo4/FlyerBuilderTemplate4";
 import SingleFlyerTemplate from "./pages/singleProperty/SingleFlyerTemplate";
 import MultipleFlyerTemplate from "./pages/multipleProperty/MultipleFlyerTemplate";
+import AgentsDetails from "./pages/AccountSetting/myAgents/MyAgents";
+import AddAgent from "./pages/AccountSetting/myAgents/AddAgent";
+import ViewAgentDetails from "./pages/AccountSetting/myAgents/ViewAgentDetails";
+import MyAgents from "./pages/AccountSetting/myAgents/MyAgents";
+import DateTimeSchedule from "./components/common/DateTimeSchedule";
 
 const App = () => {
   return (
@@ -54,15 +59,22 @@ const App = () => {
           <Route path="single-property" >
             <Route path="" element={<SingleProperty />} />
             {/* Using dynamic route parameter here */}
-            <Route path="template/:templateId" element={<SingleFlyerTemplate/>} />
+            <Route path="template/:templateId"  >
+              <Route path="" element={<SingleFlyerTemplate />} />
+              <Route path="schedule-later" element={<DateTimeSchedule />} />
+            </Route>
           </Route>
           <Route path="multiple-property" >
             <Route path="" element={<MultipleProperty />} />
             {/* Using dynamic route parameter here */}
-            <Route path="template/:templateId" element={<MultipleFlyerTemplate/>} />
+            <Route path="template/:templateId" >
+              <Route path="" element={<MultipleFlyerTemplate />} />
+              <Route path="schedule-later" element={<DateTimeSchedule />} />
+            </Route>
+
           </Route>
-          <Route path="own-html" element={<OwnHtmlForm/>} />
-          <Route path="upload-flyer" element={<ImageUpload/>} />
+          <Route path="own-html" element={<OwnHtmlForm />} />
+          <Route path="upload-flyer" element={<ImageUpload />} />
 
 
           <Route path="my-schedule-flyer" element={<MySchedule />} />
@@ -84,6 +96,11 @@ const App = () => {
               element={<CompanyProfileEdit />}
 
             />
+            <Route path="agents-details" element={<MyAgents />} />
+            <Route path="add-agent" element={<AddAgent />} />
+            <Route path="agent/:id/view" element={<ViewAgentDetails />} />
+            <Route path="company-details" element={<CompanyProfile />} />
+            <Route path="company-details/edit" element={<CompanyProfileEdit />} />
           </Route>
         </Route>
       </Routes>

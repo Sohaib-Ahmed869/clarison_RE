@@ -3,7 +3,7 @@ import SelectDatePicker from "../SelectDatePicker";
 import SelectTimePicker from "../SelectTimePicker";
 import { NavLink } from "react-router-dom";
 import Model from "./Model";
-const DateTimeSchedule = ({ buttonText }) => {
+const DateTimeSchedule = ({ buttonText="Next", showDateNote=false, showTimeNote=false }) => {
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => setOpen(true);
@@ -19,15 +19,21 @@ const DateTimeSchedule = ({ buttonText }) => {
 
         <div className="flex gap-5 w-5/6">
           <div className="w-full">
-            <h1 className="text-base sm:text-lg mb-2 text-gray-800 font-semibold">
+            <div className="">
+            <h1 className="text-base inline sm:text-lg mb-2 text-gray-800 font-semibold">
               Select Date
             </h1>
+            {showDateNote && <p className="sm:text-md text-sm inline"> (Note: eBlasts can only be scheduled for Monday to Friday)</p>}
+            </div>
             <SelectDatePicker />
           </div>
           <div className="w-full">
-            <h1 className="text-base sm:text-lg mb-2 text-gray-800 font-semibold">
+            <div className="">
+            <h1 className="text-base inline sm:text-lg mb-2 text-gray-800 font-semibold">
               Select Time
             </h1>
+            {showTimeNote && <p className="sm:text-md inline text-sm"> (Note: Please set time within 7 am to 6:30 pm.)</p>}
+            </div>
             <SelectTimePicker />
           </div>
         </div>

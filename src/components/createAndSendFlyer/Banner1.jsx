@@ -1,17 +1,20 @@
 import React from 'react'
 import logo from "../../assets/sidebar/sidebar-logo.png";
 import bannerImage from "../../assets/createAndSendFlyer/banner-img1.png";
+import { NavLink } from 'react-router-dom';
 
 const Banner1 = () => {
     return (
         <div className="p-2 m-2">
             <div className="bg-[#F2F5FA] rounded-lg relative">
 
+                <NavLink to="/user/own-html">
                 <div className="flex flex-wrap gap-4 absolute md:top-4 md:right-4 top-[50%] right-4">
                     <button className="bg-[#176A6E] rounded-3xl text-white px-4 py-2  transition-colors text-sm">
                         Upload HTML Code
                     </button>
                 </div>
+                </NavLink>
 
                 <div className="grid md:grid-cols-2 gap-8 px-3 py-2 items-center">
                     {/* Left Column - Logo and Text */}

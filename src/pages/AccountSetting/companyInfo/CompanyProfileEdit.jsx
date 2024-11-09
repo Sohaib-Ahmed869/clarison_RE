@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import companyProfilePhoto from "../../assets/accountSettings/company-profile-photo.png";
+import companyProfilePhoto from "../../../assets/accountSettings/company-profile-photo.png";
 
 const CompanyProfileEdit = () => {
     const [formData, setFormData] = useState({

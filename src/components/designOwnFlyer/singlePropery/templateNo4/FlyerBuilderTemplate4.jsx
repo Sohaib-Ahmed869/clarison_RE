@@ -230,15 +230,7 @@ const FlyerBuilderTemplate4 = () => {
                 </div>
             </div>
 
-            {/* Action Buttons */}
-            <div className="flex justify-center items-center space-x-4 w-full max-w-4xl mx-auto py-5 pb-10">
-                <button className="px-6 w-1/2 py-2 border rounded-md text-sm hover:bg-gray-50">
-                    Cancel
-                </button>
-                <button className="px-6 w-1/2 py-2 bg-purple-600 text-white rounded-md text-sm hover:bg-purple-700">
-                    Next
-                </button>
-            </div>
+            
         </div>
     );
 };

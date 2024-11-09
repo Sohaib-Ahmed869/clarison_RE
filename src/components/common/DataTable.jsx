@@ -45,7 +45,7 @@ function EnhancedTableHead({ headCells, hiddenColumns }) {
   );
 }
 
-function EnhancedTableToolbar({
+export function EnhancedTableToolbar({
   title,
   uniqueName,
   onToggleFilter,

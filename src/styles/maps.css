@@ -1,0 +1,112 @@
+
+#map-container {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    height: 100vh;
+    /* Keep the height fixed at 100vh */
+    display: flex;
+    /* Use flexbox for centering */
+    align-items: center;
+    /* Center vertically */
+    justify-content: center;
+    /* Center horizontally */
+  }
+
+  #us-map {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: all 0.3s ease;
+  }
+
+  #zoomed-state {
+    display: none;
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    /* Prevent overflow */
+    position: absolute;
+    /* Ensure it can overlap */
+    top: 50%;
+    /* Center vertically */
+    left: 50%;
+    /* Center horizontally */
+    transform: translate(-50%, -50%);
+    /* Center the SVG */
+    z-index: 1;
+    /* Set a z-index */
+  }
+
+  #reset-button {
+    display: none;
+    position: relative;
+    /* Keep button in flow of the document */
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    z-index: 2;
+    /* Ensure the button is above the SVG */
+  }
+
+  #reset-button:hover {
+    background-color: #555;
+  }
+
+  #map-container.zoomed {
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  /* ============================= */
+
+  /*
+                    * Below are Cascading Style Sheet (CSS) definitions in use in this file,
+                    * which allow easily changing how counties are displayed.
+                    *
+                    *
+                    * For the U.S. Census county codes (FIPS codes) used in this file to identify individual counties, see this link:
+                    * https://www2.census.gov/geo/docs/reference/codes/files/national_county.txt
+                    *
+                    * The county codes used in this file combine the 2-digit state code, which is in the second column of the file
+                    * linked above, and the 3-digit county code, which is in the third column of the file linked above. Each value
+                    * for the "id" attribute for each county is in the following form: "c[state_code][county-code]". For example,
+                    * for Loving Country in Texas, the state code is "48" and the county code is "301", so the id name for the
+                    * county is "c48301".
+                    *
+                    * County codes used in this file can also be found on Wikimedia Commons at this link:
+                    * https://commons.wikimedia.org/wiki/File_talk:Usa_counties_large.svg/county_codes
+                    *
+                    * Examples:
+                    *
+                    * To color two counties red (in this case Loving County and Dallas County in Texas) simply
+                    * go to the CSS insertion point and add:
+                    *
+                    * #c48301, #c48113 {fill:red}
+                    *
+                    * To color an entire state's counties (in the case New_Mexico, with "35" being the state code) a green,
+                    * go to the CSS insertion point and add:
+                    *
+                    * path[id*='c35'] {fill:#34A853}
+                    *
+                    */
+                    #counties {
+                        fill: #8A1CD9;
+                    stroke: #d6d6d6;
+                    stroke-width: .17829;
+    }
+
+                    #borders {
+                        fill: none;
+                    stroke: #2e0848;
+                    stroke-width: .89143;
+    }
+
+                    #separator {
+                        fill: none;
+                    stroke: #a9a9a9;
+                    stroke-width: 2.3177309;
+    }

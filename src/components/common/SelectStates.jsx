@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import Search from "../../assets/images/search.png";
+import StateMap from "./StateMap";
 
 
 const states = [
@@ -45,7 +46,8 @@ function SelectStates() {
   );
 
   return (
-    <div className="relative w-96">
+    <>
+    <div className="relative w-96 mx-auto">
       {/* Dropdown button */}
       <button
         onClick={toggleDropdown}
@@ -112,6 +114,10 @@ function SelectStates() {
         </div>
       )}
     </div>
+    <div className="bg-blue-500">
+      {/* <StateMap/> */}
+    </div>
+    </>
   );
 }
 
