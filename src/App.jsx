@@ -32,6 +32,7 @@ import FlyerBuilderTemplate4 from "./components/designOwnFlyer/singlePropery/tem
 import SingleFlyerTemplate from "./pages/singleProperty/SingleFlyerTemplate";
 import MultipleFlyerTemplate from "./pages/multipleProperty/MultipleFlyerTemplate";
 
+
 const App = () => {
   return (
     <>
@@ -51,19 +52,24 @@ const App = () => {
             <Route path="dashboard" element={<Dash2 />} />
           </Route>
 
-          <Route path="single-property" >
+          <Route path="single-property">
             <Route path="" element={<SingleProperty />} />
             {/* Using dynamic route parameter here */}
-            <Route path="template/:templateId" element={<SingleFlyerTemplate/>} />
+            <Route
+              path="template/:templateId"
+              element={<SingleFlyerTemplate />}
+            />
           </Route>
-          <Route path="multiple-property" >
+          <Route path="multiple-property">
             <Route path="" element={<MultipleProperty />} />
             {/* Using dynamic route parameter here */}
-            <Route path="template/:templateId" element={<MultipleFlyerTemplate/>} />
+            <Route
+              path="template/:templateId"
+              element={<MultipleFlyerTemplate />}
+            />
           </Route>
-          <Route path="own-html" element={<OwnHtmlForm/>} />
-          <Route path="upload-flyer" element={<ImageUpload/>} />
-
+          <Route path="own-html" element={<OwnHtmlForm />} />
+          <Route path="upload-flyer" element={<ImageUpload />} />
 
           <Route path="my-schedule-flyer" element={<MySchedule />} />
           <Route
@@ -72,18 +78,26 @@ const App = () => {
           />
           <Route path="my-targeted-audience" element={<TargetedAudience />}>
             <Route path="filter-audience" element={<FilterAudience />} />
-            <Route path="select-market" element={<SelectMarket titleText={"Select the Markets/Submarkets"} />} />
+            <Route
+              path="select-market"
+              element={
+                <SelectMarket titleText={"Select the Markets/Submarkets"} />
+              }
+            />
           </Route>
 
           <Route path="my-saved-work" element={<MySavedWork />} />
           <Route path="clarison-support" element={<ClarisonRESupport />} />
           <Route path="account-setting" element={<AccountSetting />}>
+            {/* <Route index element={<Navigate to="my-agents" replace />} /> */}
             <Route path="company-profile" element={<CompanyProfile />} />
             <Route
-              path="company-profile-edit"
+              path="company-profile/company-profile-edit"
               element={<CompanyProfileEdit />}
-
             />
+            {/* <Route path="my-agents" element={<MyAgent />} />
+
+            <Route path="my-subscriptions" element={<MySubscription />} /> */}
           </Route>
         </Route>
       </Routes>
