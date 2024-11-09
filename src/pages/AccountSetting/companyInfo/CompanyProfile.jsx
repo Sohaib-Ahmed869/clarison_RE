@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import companyProfilePhoto from "../../../assets/accountSettings/company-profile-photo.png";
+import { NavLink } from 'react-router-dom';
 
 const CompanyProfile = () => {
     const [formData, setFormData] = useState({
@@ -200,12 +201,14 @@ const CompanyProfile = () => {
 
                 {/* Edit Profile Button */}
                 <div className="flex justify-center mt-8">
+                    <NavLink to="/user/account-setting/company-details/edit">
                     <button
                         type="submit"
                         className="px-14 py-3 bg-[#7F3DFF] text-white rounded-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
                     >
                         Edit Profile
                     </button>
+                    </NavLink>
                 </div>
             </form>
         </div>

@@ -36,6 +36,8 @@ import AddAgent from "./pages/AccountSetting/myAgents/AddAgent";
 import ViewAgentDetails from "./pages/AccountSetting/myAgents/ViewAgentDetails";
 import MyAgents from "./pages/AccountSetting/myAgents/MyAgents";
 import DateTimeSchedule from "./components/common/DateTimeSchedule";
+import PricingStructure from "./pages/AccountSetting/mySubscription/PricingStructure";
+import MyCurrentPlan from "./pages/AccountSetting/mySubscription/MyCurrentPlan";
 
 const App = () => {
   return (
@@ -56,7 +58,7 @@ const App = () => {
             <Route path="dashboard" element={<Dash2 />} />
           </Route>
 
-          <Route path="single-property" >
+          <Route path="single-property">
             <Route path="" element={<SingleProperty />} />
             {/* Using dynamic route parameter here */}
             <Route path="template/:templateId"  >
@@ -64,7 +66,7 @@ const App = () => {
               <Route path="schedule-later" element={<DateTimeSchedule />} />
             </Route>
           </Route>
-          <Route path="multiple-property" >
+          <Route path="multiple-property">
             <Route path="" element={<MultipleProperty />} />
             {/* Using dynamic route parameter here */}
             <Route path="template/:templateId" >
@@ -84,23 +86,30 @@ const App = () => {
           />
           <Route path="my-targeted-audience" element={<TargetedAudience />}>
             <Route path="filter-audience" element={<FilterAudience />} />
-            <Route path="select-market" element={<SelectMarket titleText={"Select the Markets/Submarkets"} />} />
+            <Route
+              path="select-market"
+              element={
+                <SelectMarket titleText={"Select the Markets/Submarkets"} />
+              }
+            />
           </Route>
 
           <Route path="my-saved-work" element={<MySavedWork />} />
           <Route path="clarison-support" element={<ClarisonRESupport />} />
           <Route path="account-setting" element={<AccountSetting />}>
+            <Route index element={<Navigate to="my-agents" replace />} />
             <Route path="company-profile" element={<CompanyProfile />} />
             <Route
-              path="company-profile-edit"
+              path="company-profile/company-profile-edit"
               element={<CompanyProfileEdit />}
-
             />
-            <Route path="agents-details" element={<MyAgents />} />
+            <Route path="my-agents" element={<MyAgents />} />
             <Route path="add-agent" element={<AddAgent />} />
             <Route path="agent/:id/view" element={<ViewAgentDetails />} />
             <Route path="company-details" element={<CompanyProfile />} />
             <Route path="company-details/edit" element={<CompanyProfileEdit />} />
+            <Route path="my-subscriptions" element={<MyCurrentPlan/>} />
+            <Route path="pricing-structure" element={<PricingStructure/>} />
           </Route>
         </Route>
       </Routes>
