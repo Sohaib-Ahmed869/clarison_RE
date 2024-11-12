@@ -45,8 +45,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Navigate to="/user/dashboard" />} />
         <Route path="/user" element={<UserLayout />}>
-          <Route path="dashboard" element={<Dashboard />}>
-            <Route path="" element={<MainDash />} />
+          <Route path="dashboard">
+            <Route path="" element={<Dashboard />} />
             <Route path="for-sale" element={<ForSale />} />
             <Route path="sale-form" element={<ForSaleForm />} />
             <Route path="for-lease" element={<ForLease />} />
@@ -55,7 +55,8 @@ const App = () => {
           </Route>
 
           <Route path="create-send-flyer" element={<CreateSendFlyer />}>
-            <Route path="dashboard" element={<Dash2 />} />
+            {/* <Route path="dashboard" element={<Dash2 />} /> */}
+            <Route path="" element={<MainDash />} />
           </Route>
 
           <Route path="single-property">
@@ -108,8 +109,8 @@ const App = () => {
             <Route path="agent/:id/view" element={<ViewAgentDetails />} />
             <Route path="company-details" element={<CompanyProfile />} />
             <Route path="company-details/edit" element={<CompanyProfileEdit />} />
-            <Route path="my-subscriptions" element={<MyCurrentPlan/>} />
-            <Route path="pricing-structure" element={<PricingStructure/>} />
+            <Route path="my-subscriptions" element={<MyCurrentPlan />} />
+            <Route path="pricing-structure" element={<PricingStructure />} />
           </Route>
         </Route>
       </Routes>

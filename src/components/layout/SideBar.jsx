@@ -37,7 +37,7 @@ const SideBar = ({ open, handleToggle }) => {
       </NavLink>
 
       {/* Create & Send Flyer Link */}
-      <NavLink onClick={handleToggle} to="/user/create-send-flyer/dashboard">
+      <NavLink onClick={handleToggle} to="/user/create-send-flyer">
         {({ isActive }) => (
           <div onClick={setIsAccountSettingsActive(false)} className={`flex items-center px-4 py-4 my-2 rounded-2xl w-full transition-colors duration-300 ${isActive ? "bg-secondary text-white" : "text-[#737791]"}`}>
             <img src={image2} alt="Create & Send Flyer" className={`w-5 h-5 ${isActive ? "filter brightness-0 invert" : ""}`} />
