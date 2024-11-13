@@ -1,6 +1,6 @@
 import React from 'react';
 import { Send, MousePointer, Mail, Layout } from 'lucide-react';
-import TopEBlasts from '../../components/dashboard/Topeblasts';
+import TopEBlasts from './Topeblasts';
 import recentActivityPersonProfile from "../../assets/dashboard/recent-activity-img.png";
 
 const ActivityCard = ({ date, time, name, messages, isLast }) => (
