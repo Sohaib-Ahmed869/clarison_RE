@@ -1,6 +1,6 @@
 import React from 'react'
 import { Send, MousePointer, Mail, Layout, Upload } from 'lucide-react';
-import TopEBlasts from '../../components/dashboard/Topeblasts';
+import TopEBlasts from '../../components/dashboard/TopEBlasts';
 import RecentActivity from '../../components/dashboard/RecentActivity';
 import VisitorsBlock from '../../components/dashboard/ClicksBlock';
 import ClicksBlock from '../../components/dashboard/ClicksBlock';
