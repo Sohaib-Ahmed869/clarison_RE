@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const ForSaleForm = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +10,7 @@ const ForSaleForm = () => {
     hasMLS: 'yes',
     mlsNumber: '#123456'
   });
+  const router = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,6 +30,7 @@ const ForSaleForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission
+    router('/user/flyer');
   };
 
   return (

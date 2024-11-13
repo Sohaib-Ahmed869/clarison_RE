@@ -59,6 +59,8 @@ const App = () => {
             <Route path="" element={<MainDash />} />
           </Route>
 
+          <Route path="flyer" element={<Dash2/>} />
+
           <Route path="single-property">
             <Route path="" element={<SingleProperty />} />
             {/* Using dynamic route parameter here */}
