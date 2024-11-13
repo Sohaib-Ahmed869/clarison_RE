@@ -67,13 +67,13 @@ const SingleFlyerTemplate = () => {
   }
 
   return (
-    <div className='flex flex-col'>
+    <div className='flex flex-col overflow-hidden'>
       <div className="">
         <ProgressBar steps={steps} currentStep={currentStep} />
         {currentStep === 0 && selectedTemplate}
         {currentStep === 1 && <SelectStates/>}
         {currentStep === 2 && <div>
-          <SelectStates/>
+          <SelectStates showMap={false}/>
           <SelectArea  />
           </div>}
         {currentStep === 3 && <ScheduleLater onClickScheduleLater={onClickScheduleLater}/>}

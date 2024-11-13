@@ -60,7 +60,7 @@ const MultipleFlyerTemplate = () => {
         {currentStep === 0 && selectedTemplate}
         {currentStep === 1 && <SelectStates />}
         {currentStep === 2 && <div>
-          <SelectStates />
+          <SelectStates showMap={false} />
           <SelectArea />
         </div>}
         {currentStep === 3 && <ScheduleLater onClickScheduleLater={onClickScheduleLater} />}

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Search from "../../assets/images/search.png"
 import { IoIosArrowForward } from "react-icons/io";
 
+
 const areas = [
   "Jeff Davis",
   "North Carolina",
@@ -44,6 +45,7 @@ function SelectArea() {
   );
 
   return (
+    <>
     <div className="relative w-96 mx-auto">
       {/* Dropdown button */}
       <button
@@ -109,6 +111,11 @@ function SelectArea() {
         </div>
       )}
     </div>
+    <div className="w-1/2 mx-auto">
+    {/* <StateMap/> */}
+      map
+  </div>
+  </>
   );
 }
 

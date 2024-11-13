@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import Search from "../../assets/images/search.png";
 import StateMap from "./StateMap";
+import USAMapSelect from "./USAMapSelect";
 
 
 const states = [
@@ -15,7 +16,8 @@ const states = [
   "Oregon",
 ];
 
-function SelectStates() {
+function SelectStates({showMap=true}) {
+  const [selectedStateFromMap, setSelectedStateFromMap] = useState('');
   const [selectedStates, setSelectedStates] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
@@ -114,8 +116,9 @@ function SelectStates() {
         </div>
       )}
     </div>
-    <div className="bg-blue-500">
+    <div className="w-1/2 mx-auto">
       {/* <StateMap/> */}
+      {showMap && <USAMapSelect selectedStateFromMap={selectedStateFromMap} setSelectedStateFromMap={setSelectedStateFromMap} />}
     </div>
     </>
   );
