@@ -58,13 +58,24 @@ const MultipleFlyerTemplate = () => {
       <div className="">
         <ProgressBar steps={steps} currentStep={currentStep} />
         {currentStep === 0 && selectedTemplate}
-        {currentStep === 1 && <SelectStates />}
+        {currentStep === 1 && (
+          <>
+            <h1 className="text-xl sm:text-3xl text-center mb-4 w-full font-semibold text-secondary">
+              Filter your Audience
+            </h1>
+            <SelectStates />
+          </>
+        )}
         {currentStep === 2 && <div>
+          <h1 className="text-xl sm:text-3xl text-center mb-4 w-full font-semibold text-secondary">
+            Select the Markets/Submarkets
+          </h1>
           <SelectStates showMap={false} />
           <SelectArea />
         </div>}
         {currentStep === 3 && <ScheduleLater onClickScheduleLater={onClickScheduleLater} />}
       </div>
+
       {/* Action Buttons */}
       <div className="flex w-1/2 self-center justify-center mt-5 space-x-4">
         <button onClick={handleCancel} className="px-6 w-1/2 py-2 border border-gray-200 rounded-md text-sm hover:bg-gray-50">

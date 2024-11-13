@@ -10,9 +10,9 @@ const FilterAudience = () => {
         <h1 className="text-xl sm:text-3xl text-center w-full font-semibold text-secondary">
           Filter your Audience
         </h1>
+        <p className="text-center px-4">We currently cover a select number of states. We are actively working on gradually adding more states to our database. If you do not see you desired state, please select “Other” and we will email you once your state is available in our system</p>
         <SelectStates />
 
-        <div className="flex gap-5 w-5/6 text-center">Map</div>
         <div className="flex gap-5 w-full bg items-center justify-center">
         <NavLink className="w-2/6 " to="/user/my-targeted-audience">
           <button className="bg-transparent w-full border border-primary text-primary h-14 text-base rounded-lg flex gap-2 items-center justify-center mt-5">
