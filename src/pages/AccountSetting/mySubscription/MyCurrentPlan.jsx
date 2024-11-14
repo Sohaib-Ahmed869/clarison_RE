@@ -23,7 +23,7 @@ const MyCurrentPlan = () => {
 
           <p class="text-2xl sm:text-4xl font-semibold mb-4 ">$60/Month</p>
 
-          <NavLink to="/user/account-setting/pricing-structure">
+          <NavLink to="/account-setting/pricing-structure">
           <button class="bg-white text-primary w-full font-semibold rounded-full py-2 px-8 hover:bg-blue-100 mb-6 transition-all duration-300">
             Upgrade Now
           </button>

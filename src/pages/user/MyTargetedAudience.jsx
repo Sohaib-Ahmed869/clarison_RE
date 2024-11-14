@@ -26,7 +26,7 @@ const MyTargetedAudience = () => {
   return (
     <>
     <div className="rounded lg:p-10">
-    {location.pathname === '/user/my-targeted-audience' && (
+    {location.pathname === '/my-targeted-audience' && (
       <DataTable
         headCells={headCells}
         rows={uniqueName === "Targeted-Audience" ? rows : []} // Conditionally pass rows based on uniqueName

@@ -45,8 +45,8 @@ const App = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Navigate to="/user/dashboard" />} />
-        <Route path="/user" element={<UserLayout />}>
+        <Route path="/" element={<UserLayout />}  >
+          <Route path="" element={<Navigate to="/dashboard" />} />
           <Route path="dashboard">
             <Route path="" element={<Dashboard />} />
             <Route path="for-sale" element={<ForSale />} />

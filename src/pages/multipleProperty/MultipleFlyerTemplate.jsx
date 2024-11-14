@@ -49,7 +49,7 @@ const MultipleFlyerTemplate = () => {
 
   const onClickScheduleLater = () => {
     console.log('Schedule Later');
-    router(`/user/multiple-property/template/${templateId}/schedule-later`);
+    router(`/multiple-property/template/${templateId}/schedule-later`);
   }
 
 

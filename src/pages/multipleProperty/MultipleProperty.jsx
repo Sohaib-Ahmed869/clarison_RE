@@ -31,7 +31,7 @@ const MultipleProperty = () => {
     const handleUseTemplate = (templateLink) => {
       console.log("templateLink", templateLink);
       setSelectedTemplate(templateLink);
-      router(`/user/multiple-property/template/${templateLink}`);
+      router(`/multiple-property/template/${templateLink}`);
     };
 
     return (

@@ -27,7 +27,7 @@ const SideBar = ({ open, handleToggle }) => {
       </div>
 
       {/* Dashboard Link */}
-      <NavLink onClick={handleToggle} to="/user/dashboard">
+      <NavLink onClick={handleToggle} to="/dashboard">
         {({ isActive }) => (
           <div onClick={setIsAccountSettingsActive(false)} className={`flex items-center px-4 py-4 my-2 rounded-2xl w-full transition-colors duration-300 ${isActive ? "bg-secondary text-white" : "text-[#737791]"}`}>
             <img src={image1} alt="Dashboard" className={`w-5 h-5 ${isActive ? "filter brightness-0 invert" : ""}`} />
@@ -37,7 +37,7 @@ const SideBar = ({ open, handleToggle }) => {
       </NavLink>
 
       {/* Create & Send Flyer Link */}
-      <NavLink onClick={handleToggle} to="/user/create-send-flyer">
+      <NavLink onClick={handleToggle} to="/create-send-flyer">
         {({ isActive }) => (
           <div onClick={setIsAccountSettingsActive(false)} className={`flex items-center px-4 py-4 my-2 rounded-2xl w-full transition-colors duration-300 ${isActive ? "bg-secondary text-white" : "text-[#737791]"}`}>
             <img src={image2} alt="Create & Send Flyer" className={`w-5 h-5 ${isActive ? "filter brightness-0 invert" : ""}`} />
@@ -47,7 +47,7 @@ const SideBar = ({ open, handleToggle }) => {
       </NavLink>
 
       {/* My Schedule Flyer Link */}
-      <NavLink onClick={handleToggle} to="/user/my-schedule-flyer">
+      <NavLink onClick={handleToggle} to="/my-schedule-flyer">
         {({ isActive }) => (
           <div onClick={setIsAccountSettingsActive(false)} className={`flex items-center px-4 py-4 my-2 rounded-2xl w-full transition-colors duration-300 ${isActive ? "bg-secondary text-white" : "text-[#737791]"}`}>
             <img src={image3} alt="My Schedule" className={`w-5 h-5 ${isActive ? "filter brightness-0 invert" : ""}`} />
@@ -57,7 +57,7 @@ const SideBar = ({ open, handleToggle }) => {
       </NavLink>
 
       {/* My Targeted Audience Link */}
-      <NavLink onClick={handleToggle} to="/user/my-targeted-audience">
+      <NavLink onClick={handleToggle} to="/my-targeted-audience">
         {({ isActive }) => (
           <div onClick={setIsAccountSettingsActive(false)} className={`flex items-center px-4 py-4 my-2 rounded-2xl w-full transition-colors duration-300 ${isActive ? "bg-secondary text-white" : "text-[#737791]"}`}>
             <img src={image4} alt="My Targeted Audience" className={`w-5 h-5 ${isActive ? "filter brightness-0 invert" : ""}`} />
@@ -67,7 +67,7 @@ const SideBar = ({ open, handleToggle }) => {
       </NavLink>
 
       {/* My Saved Work Link */}
-      <NavLink onClick={handleToggle} to="/user/my-saved-work">
+      <NavLink onClick={handleToggle} to="/my-saved-work">
         {({ isActive }) => (
           <div onClick={setIsAccountSettingsActive(false)} className={`flex items-center px-4 py-4 my-2 rounded-2xl w-full transition-colors duration-300 ${isActive ? "bg-secondary text-white" : "text-[#737791]"}`}>
             <img src={image5} alt="My Saved Work" className={`w-5 h-5 ${isActive ? "filter brightness-0 invert" : ""}`} />
@@ -77,7 +77,7 @@ const SideBar = ({ open, handleToggle }) => {
       </NavLink>
 
       {/* ClarisonRE Support Link */}
-      <NavLink onClick={handleToggle} to="/user/clarison-support">
+      <NavLink onClick={handleToggle} to="/clarison-support">
         {({ isActive }) => (
           <div onClick={setIsAccountSettingsActive(false)} className={`flex items-center px-4 py-4 my-2 rounded-2xl w-full transition-colors duration-300 ${isActive ? "bg-secondary text-white" : "text-[#737791]"}`}>
             <img src={image6} alt="ClarisonRE Support" className={`w-5 h-5 ${isActive ? "filter brightness-0 invert" : ""}`} />
@@ -88,7 +88,7 @@ const SideBar = ({ open, handleToggle }) => {
 
       {/* Account Setting with Sub-Menu */}
       <NavLink
-        to="/user/account-setting"
+        to="/account-setting"
         onClick={() => handleAccountClick(!isAccountSettingsActive)}
       >
         {({ isActive }) => {
@@ -102,7 +102,7 @@ const SideBar = ({ open, handleToggle }) => {
                 <ul className="ml-8 mt-2 text-[#737791] space-y-2">
                   <li>
                       <NavLink
-                        to="/user/account-setting/my-agents"
+                        to="/account-setting/my-agents"
                         onClick={handleToggle}
                         className={({ isActive }) =>
                           `flex items-center space-x-2 ${isActive ? "text-blue-600" : "text-[#737791]"}`
@@ -114,7 +114,7 @@ const SideBar = ({ open, handleToggle }) => {
                     </li>
                   <li>
                     <NavLink
-                      to="/user/account-setting/company-profile"
+                      to="/account-setting/company-profile"
                       onClick={handleToggle}
                       className={({ isActive }) => `flex items-center space-x-2 ${isActive ? "text-blue-600" : "text-[#737791]"}`}
                     >
@@ -124,7 +124,7 @@ const SideBar = ({ open, handleToggle }) => {
                   </li>
                   <li>
                       <NavLink
-                        to="/user/account-setting/my-subscriptions"
+                        to="/account-setting/my-subscriptions"
                         onClick={handleToggle}
                         className={({ isActive }) =>
                           `flex items-center space-x-2 ${isActive ? "text-blue-600" : "text-[#737791]"}`

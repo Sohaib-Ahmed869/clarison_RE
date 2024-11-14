@@ -63,7 +63,7 @@ const SingleFlyerTemplate = () => {
 
   const onClickScheduleLater = () => {
     console.log('Schedule Later');
-    router(`/user/single-property/template/${templateId}/schedule-later`);
+    router(`/single-property/template/${templateId}/schedule-later`);
   }
 
   return (

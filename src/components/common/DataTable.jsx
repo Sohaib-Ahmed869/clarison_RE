@@ -197,7 +197,7 @@ export default function DataTable({ headCells, rows, title, uniqueName }) {
   const navigate = useNavigate();
   const handleContinue = () => {
     handleClose();
-    navigate("/user/my-targeted-audience/filter-audience");
+    navigate("/my-targeted-audience/filter-audience");
   };
   
   return (
@@ -257,7 +257,7 @@ export default function DataTable({ headCells, rows, title, uniqueName }) {
                                 </>
                               ) : uniqueName === "My-Schedule" ? (
                                 <div>
-                                  <NavLink to="/user/my-schedule-flyer/update">
+                                  <NavLink to="/my-schedule-flyer/update">
                                     <button onClick={() => handleUpdate(row.id)}>
                                       <img src={Update} alt="update button" />
                                     </button>

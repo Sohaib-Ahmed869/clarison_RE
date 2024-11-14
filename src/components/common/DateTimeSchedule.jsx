@@ -40,7 +40,7 @@ const DateTimeSchedule = ({ buttonText="Next", showDateNote=false, showTimeNote=
       </div>
 
       <div className="flex gap-5 w-full items-center justify-center">
-        <NavLink className="w-2/6" to="/user/my-schedule-flyer">
+        <NavLink className="w-2/6" to="/my-schedule-flyer">
           <button className="bg-transparent w-full border border-primary text-primary h-14 text-base rounded-lg flex gap-2 items-center justify-center mt-5">
             Cancel
           </button>

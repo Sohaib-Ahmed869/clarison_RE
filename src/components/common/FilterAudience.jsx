@@ -14,13 +14,13 @@ const FilterAudience = () => {
         <SelectStates />
 
         <div className="flex gap-5 w-full bg items-center justify-center">
-        <NavLink className="w-2/6 " to="/user/my-targeted-audience">
+        <NavLink className="w-2/6 " to="/my-targeted-audience">
           <button className="bg-transparent w-full border border-primary text-primary h-14 text-base rounded-lg flex gap-2 items-center justify-center mt-5">
             Cancel
           </button>
         </NavLink>
 
-        <NavLink className="w-2/6 " to="/user/my-targeted-audience/select-market">
+        <NavLink className="w-2/6 " to="/my-targeted-audience/select-market">
         <button
         
           className="bg-primary hover:bg-opacity-80 w-full text-white h-14 text-base rounded-lg flex gap-2 items-center justify-center mt-5"

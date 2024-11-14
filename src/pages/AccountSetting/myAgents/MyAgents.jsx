@@ -32,12 +32,12 @@ const MyAgents = () => {
 
   const onClickView = (agentId) => {
     console.log("Add new agent");
-    router(`/user/account-setting/agent/${agentId}/view`);
+    router(`/account-setting/agent/${agentId}/view`);
   };
 
   const onClickAdd = () => {
     console.log("Add new agent");
-    router('/user/account-setting/add-agent');
+    router('/account-setting/add-agent');
   }
 
   return (

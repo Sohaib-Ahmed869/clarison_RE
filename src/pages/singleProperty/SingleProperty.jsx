@@ -34,7 +34,7 @@ const SingleProperty = () => {
   const handleUseTemplate = (templateLink) => {
     console.log("templateLink", templateLink);
     setSelectedTemplate(templateLink);
-    router(`/user/single-property/template/${templateLink}`);
+    router(`/single-property/template/${templateLink}`);
   };
 
   return (

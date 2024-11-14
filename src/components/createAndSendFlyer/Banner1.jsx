@@ -8,7 +8,7 @@ const Banner1 = () => {
         <div className="p-2 m-2">
             <div className="bg-[#F2F5FA] rounded-lg relative">
 
-                <NavLink to="/user/own-html">
+                <NavLink to="/own-html">
                 <div className="flex flex-wrap gap-4 absolute md:top-4 md:right-4 top-[50%] right-4">
                     <button className="bg-[#176A6E] rounded-3xl text-white px-4 py-2  transition-colors text-sm">
                         Upload HTML Code

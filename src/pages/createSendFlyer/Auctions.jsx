@@ -49,7 +49,7 @@ const Auctions = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(formData);
-        router('/user/dashboard/sale-form');
+        router('/dashboard/sale-form');
     };
 
 

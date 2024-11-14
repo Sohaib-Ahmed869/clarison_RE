@@ -43,7 +43,7 @@ const FlyerUpload = () => {
 
   const onClickScheduleLater = () => {
     console.log('Schedule Later');
-    router(`/user/flyer/schedule-later`);
+    router(`/flyer/schedule-later`);
   }
 
 

@@ -30,7 +30,7 @@ const ForSaleForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission
-    router('/user/flyer');
+    router('/flyer');
   };
 
   return (

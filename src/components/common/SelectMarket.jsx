@@ -23,7 +23,7 @@ const SelectMarket = ({titleText}) => {
 
         <div className="flex gap-5 w-5/6">Map</div>
         <div className="flex gap-5 w-full items-center justify-center">
-          <NavLink className="w-2/6" to="/user/my-targeted-audience/filter-audience">
+          <NavLink className="w-2/6" to="/my-targeted-audience/filter-audience">
             <button className="bg-transparent w-full border border-primary text-primary h-14 text-base rounded-lg flex gap-2 items-center justify-center mt-5">
               Cancel
             </button>
