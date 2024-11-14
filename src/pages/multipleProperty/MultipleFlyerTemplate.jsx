@@ -54,7 +54,7 @@ const MultipleFlyerTemplate = () => {
 
 
   return (
-    <div className='flex flex-col'>
+    <div className='flex flex-col overflow-hidden'>
       <div className="">
         <ProgressBar steps={steps} currentStep={currentStep} />
         {currentStep === 0 && selectedTemplate}

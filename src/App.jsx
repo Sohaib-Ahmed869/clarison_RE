@@ -38,6 +38,8 @@ import MyAgents from "./pages/AccountSetting/myAgents/MyAgents";
 import DateTimeSchedule from "./components/common/DateTimeSchedule";
 import PricingStructure from "./pages/AccountSetting/mySubscription/PricingStructure";
 import MyCurrentPlan from "./pages/AccountSetting/mySubscription/MyCurrentPlan";
+import OwnHtml from "./pages/OwnHtml";
+import FlyerUpload from "./pages/FlyerUpload";
 
 const App = () => {
   return (
@@ -59,7 +61,10 @@ const App = () => {
             <Route path="" element={<MainDash />} />
           </Route>
 
-          <Route path="flyer" element={<Dash2/>} />
+          <Route path="flyer"  >
+            <Route path="" element={<Dash2 />} />
+            <Route path="schedule-later" element={<DateTimeSchedule />} />
+          </Route>
 
           <Route path="single-property">
             <Route path="" element={<SingleProperty />} />
@@ -78,9 +83,9 @@ const App = () => {
             </Route>
 
           </Route>
-          <Route path="own-html" element={<OwnHtmlForm />} />
-          <Route path="upload-flyer" element={<ImageUpload />} />
 
+          <Route path="own-html" element={<OwnHtml />} />
+          <Route path="upload-flyer" element={<FlyerUpload />} />
 
           <Route path="my-schedule-flyer" element={<MySchedule />} />
           <Route

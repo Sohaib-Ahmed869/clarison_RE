@@ -47,7 +47,7 @@ const UserLayout = () => {
           />
           <Header />
         </div>
-        <div className="h-full w-full">
+        <div className="h-full w-full pb-8">
           <Outlet />
         </div>
       </div>

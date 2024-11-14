@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
-// const OwnHtmlPreview = ({ ownHtmlCode ,onNext }) => {
-const OwnHtmlPreview = ({ onNext }) => {
-    const ownHtmlCode=useState(sampleHtmlCode)
+
+const OwnHtmlPreview = ({ownHtml}) => {
+    // const ownHtmlCode=useState(sampleHtmlCode)
 
     return (
         <div className="flex flex-col items-center pt-3 pb-8">
@@ -14,15 +14,9 @@ const OwnHtmlPreview = ({ onNext }) => {
             >
                 <iframe
                     className="w-full h-full rounded-lg"
-                    srcDoc={ownHtmlCode}
+                    srcDoc={ownHtml}
                 />
             </div>
-            <button
-                className="mt-6 px-10 py-2 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-colors"
-                onClick={onNext}
-            >
-                Next Step
-            </button>
         </div>
     )
 }

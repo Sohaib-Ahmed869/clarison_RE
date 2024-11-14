@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import imagePlus from "../../assets/uploadOwnFlyer/image-plus.png";
 
 const ImageUpload = ({ uploadedImage, setUploadImage, onNext }) => {
@@ -6,8 +6,22 @@ const ImageUpload = ({ uploadedImage, setUploadImage, onNext }) => {
     const [previewUrl, setPreviewUrl] = useState(null);
     const [isDragging, setIsDragging] = useState(false);
 
+
+
+    useEffect(() => {
+        // Set initial preview URL if an uploaded image is passed as a prop
+        if (uploadedImage) {
+            const preview = URL.createObjectURL(uploadedImage);
+            setPreviewUrl(preview);
+    
+            // Revoke the preview URL to avoid memory leaks
+            return () => URL.revokeObjectURL(preview);
+        }
+    }, [uploadedImage]);
+
+
     const handleFileSelect = (file) => {
-        if (file) {
+        if (file) { 
             // Check file type
             if (!file.type.startsWith('image/')) {
                 alert('Please upload an image file');
@@ -93,12 +107,7 @@ const ImageUpload = ({ uploadedImage, setUploadImage, onNext }) => {
                 />
             </div>
 
-            <button
-                className="mt-6 px-10 py-2 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-colors"
-                onClick={onNext}
-            >
-                Next Step
-            </button>
+           
         </div>
     );
 };
