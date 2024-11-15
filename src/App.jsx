@@ -40,12 +40,20 @@ import PricingStructure from "./pages/AccountSetting/mySubscription/PricingStruc
 import MyCurrentPlan from "./pages/AccountSetting/mySubscription/MyCurrentPlan";
 import OwnHtml from "./pages/OwnHtml";
 import FlyerUpload from "./pages/FlyerUpload";
+import Login from "./components/auth/Login";
+import Register from "./components/auth/Register";
 
 const App = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<UserLayout />}  >
+        <Route path="/"  >
+
+        <Route path="auth" element={<AuthLayout/>} >
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />    
+        </Route>
+
           <Route path="" element={<Navigate to="/dashboard" />} />
           <Route path="dashboard">
             <Route path="" element={<Dashboard />} />
